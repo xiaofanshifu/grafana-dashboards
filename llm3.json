@@ -4422,7 +4422,7 @@
                         "name": "PBFA97CFB590B2093"
                       },
                       "spec": {
-                        "expr": "sum(rate(vllm:request_success_total{finished_reason=~\"stop|length\", model_name=\"${model_name}\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:request_success_total{model_name=\"${model_name}\", instance=~\"${instance}\"}[5m])), 0.001)) * 100",
+                        "expr": "sum(rate(vllm:request_success_total{finished_reason=~\"stop|length\", model_name=\"${model_name}\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:request_success_total{model_name=\"${model_name}\", instance=~\"${instance}\"}[5m])), 0.001) * 100",
                         "legendFormat": "vLLM"
                       }
                     },
@@ -5726,11 +5726,12 @@
       "llm",
       "inference",
       "sglang",
-      "vllm"
+      "vllm",
+      "chinese"
     ],
     "timeSettings": {
       "timezone": "browser",
-      "from": "now-1h",
+      "from": "now-30m",
       "to": "now",
       "autoRefresh": "10s",
       "autoRefreshIntervals": [
@@ -5741,20 +5742,22 @@
         "5m",
         "15m",
         "30m",
-        "1h"
+        "1h",
+        "2h",
+        "1d"
       ],
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "vllm-dashboard4",
+    "title": "LLM 推理监控 (vLLM/SGLang) · 统一视图",
     "variables": [
       {
         "kind": "QueryVariable",
         "spec": {
           "name": "model_name",
           "current": {
-            "text": "/models/DeepSeek-V4-Flash",
-            "value": "/models/DeepSeek-V4-Flash"
+            "text": "",
+            "value": ""
           },
           "label": "模型名称",
           "hide": "dontHide",

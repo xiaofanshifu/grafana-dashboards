@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v2",
   "kind": "Dashboard",
   "metadata": {
-    "name": "rYdddlPWk",
+    "name": "node-exporter",
     "namespace": "default",
     "uid": "1d561d62-6239-4704-9231-1fe20fd18903",
     "resourceVersion": "1785934791351994",
@@ -11,17 +11,7 @@
     "labels": {
       "grafana.app/deprecatedInternalID": "4245486964584448"
     },
-    "annotations": {
-      "grafana.app/createdBy": "access-policy:service",
-      "grafana.app/managedBy": "classic-file-provisioning",
-      "grafana.app/managerId": "default",
-      "grafana.app/saved-from-ui": "Grafana v13.1.2 (7f247b37a4)",
-      "grafana.app/sourceChecksum": "d4ab85585381580f5f89e7e9cb76ef7d",
-      "grafana.app/sourcePath": "/var/lib/grafana/dashboards/node_exporter_full.json",
-      "grafana.app/sourceTimestamp": "1785900021000",
-      "grafana.app/updatedBy": "user:bfu8udnkezawwd",
-      "grafana.app/updatedTimestamp": "2026-08-05T12:59:51Z"
-    }
+    "annotations": {}
   },
   "spec": {
     "annotations": [
@@ -1369,10 +1359,6 @@
                       {
                         "value": null,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -6098,10 +6084,6 @@
                       {
                         "value": null,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -7332,14 +7314,6 @@
                       {
                         "value": null,
                         "color": "rgba(50, 172, 45, 0.97)"
-                      },
-                      {
-                        "value": 70,
-                        "color": "rgba(237, 129, 40, 0.89)"
-                      },
-                      {
-                        "value": 90,
-                        "color": "rgba(245, 54, 54, 0.9)"
                       }
                     ]
                   },
@@ -10668,10 +10642,6 @@
                       {
                         "value": null,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -18248,10 +18218,6 @@
                       {
                         "value": null,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -21654,9 +21620,9 @@
     ],
     "timeSettings": {
       "timezone": "browser",
-      "from": "now-24h",
+      "from": "now-30m",
       "to": "now",
-      "autoRefresh": "1m",
+      "autoRefresh": "10s",
       "autoRefreshIntervals": [
         "5s",
         "10s",
@@ -21672,7 +21638,7 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "Node Exporter Full",
+    "title": "Linux 主机监控 (Node Exporter)",
     "variables": [
       {
         "kind": "DatasourceVariable",

@@ -47,7 +47,7 @@
       }
     ],
     "cursorSync": "Crosshair",
-    "description": "基于原版 #24755 的完整中文汉化版本。覆盖 vLLM 推理核心指标：调度器效率、KV Cache 使用率、TTFT/TPOT 延迟、Prefix Cache 命中率、请求完成原因分布等。已适配 Grafana 10.4+，开箱即用。",
+    "description": "vLLM 与 SGLang 双框架 LLM 推理监控：扩展分析，覆盖调度器效率、KV Cache 使用率、TTFT/TPOT 延迟、Prefix Cache 命中率、请求完成原因分布、进程健康与 Engine / TP Rank 分布。",
     "editable": true,
     "elements": {
       "panel-10": {
@@ -5590,18 +5590,16 @@
     "liveNow": false,
     "preload": false,
     "tags": [
-      "vllm",
       "llm",
       "inference",
-      "prometheus",
-      "ai",
-      "chinese",
-      "monitoring"
+      "sglang",
+      "vllm",
+      "chinese"
     ],
     "timeSettings": {
-      "from": "now-15m",
+      "from": "now-30m",
       "to": "now",
-      "autoRefresh": "5s",
+      "autoRefresh": "10s",
       "autoRefreshIntervals": [
         "5s",
         "10s",
@@ -5617,7 +5615,7 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "vllm-dashboard3",
+    "title": "LLM 推理监控 (vLLM/SGLang) · 扩展分析",
     "variables": [
       {
         "kind": "QueryVariable",

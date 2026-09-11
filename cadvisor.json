@@ -3,7 +3,7 @@
     {
       "name": "DS_PROMETHEUS",
       "label": "Prometheus",
-      "description": "Prometheus as the datasource is obligatory",
+      "description": "必须使用 Prometheus 作为数据源",
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
@@ -66,7 +66,7 @@
       },
       "id": 100,
       "panels": [],
-      "title": "Host",
+      "title": "主机",
       "type": "row"
     },
     {
@@ -83,7 +83,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 12,
         "x": 0,
         "y": 1
       },
@@ -113,9 +113,9 @@
           "instant": true
         }
       ],
-      "title": "Host CPU",
+      "title": "主机 CPU 使用率",
       "type": "stat",
-      "description": "Whole-machine CPU, 4 cores = max 400%"
+      "description": "整机 CPU 使用率；4 核机器上限为 400%"
     },
     {
       "datasource": "${DS_PROMETHEUS}",
@@ -131,8 +131,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 6,
+        "w": 12,
+        "x": 12,
         "y": 1
       },
       "id": 102,
@@ -156,7 +156,7 @@
           "expr": "container_memory_usage_bytes{instance=~\"$host\", id=\"/\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "used",
+          "legendFormat": "已用",
           "refId": "A",
           "instant": true
         },
@@ -164,12 +164,12 @@
           "expr": "machine_memory_bytes{instance=~\"$host\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "total",
+          "legendFormat": "总量",
           "refId": "B",
           "instant": true
         }
       ],
-      "title": "Host Memory",
+      "title": "主机内存",
       "type": "stat"
     },
     {
@@ -186,9 +186,9 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 12,
-        "y": 1
+        "w": 12,
+        "x": 0,
+        "y": 5
       },
       "id": 103,
       "options": {
@@ -211,14 +211,14 @@
           "expr": "container_cpu_load_average_10s{instance=~\"$host\", id=\"/\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{hostname}}",
           "refId": "A",
           "instant": true
         }
       ],
-      "title": "Host Load 10s",
+      "title": "主机负载（10s）",
       "type": "stat",
-      "description": "10-second load average of the machine"
+      "description": "主机的 10 秒负载均值"
     },
     {
       "datasource": "${DS_PROMETHEUS}",
@@ -234,9 +234,9 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 18,
-        "y": 1
+        "w": 12,
+        "x": 12,
+        "y": 5
       },
       "id": 104,
       "options": {
@@ -259,7 +259,7 @@
           "expr": "container_memory_swap{instance=~\"$host\", id=\"/\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "used",
+          "legendFormat": "已用",
           "refId": "A",
           "instant": true
         },
@@ -267,12 +267,12 @@
           "expr": "machine_swap_bytes{instance=~\"$host\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "total",
+          "legendFormat": "总量",
           "refId": "B",
           "instant": true
         }
       ],
-      "title": "Host Swap",
+      "title": "主机 Swap",
       "type": "stat"
     },
     {
@@ -282,7 +282,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 9
       },
       "id": 110,
       "panels": [],
@@ -305,9 +305,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
+        "w": 12,
         "x": 0,
-        "y": 6
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 15,
@@ -350,7 +350,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU Usage",
+      "title": "CPU 使用率",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -403,9 +403,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 6,
-        "y": 6
+        "w": 12,
+        "x": 12,
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 111,
@@ -440,14 +440,14 @@
           "expr": "sum(rate(container_cpu_user_seconds_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name) *100",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} user",
+          "legendFormat": "{{name}} 用户态",
           "refId": "A"
         },
         {
           "expr": "sum(rate(container_cpu_system_seconds_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name) *100",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} system",
+          "legendFormat": "{{name}} 系统态",
           "refId": "B"
         }
       ],
@@ -455,7 +455,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU User / System",
+      "title": "CPU 用户态/系统态",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -508,9 +508,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 12,
-        "y": 6
+        "w": 12,
+        "x": 0,
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 112,
@@ -553,7 +553,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Load Average 10s",
+      "title": "10s 负载均值",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -589,7 +589,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "Per-container 10s load average"
+      "description": "各容器的 10s 负载均值"
     },
     {
       "aliasColors": {},
@@ -607,9 +607,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 18,
-        "y": 6
+        "w": 12,
+        "x": 12,
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 113,
@@ -652,7 +652,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU Stalled (PSI)",
+      "title": "CPU 停滞（PSI）",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -688,7 +688,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "cgroup v2 PSI: percent of time tasks were stalled waiting for CPU (throttling pressure)"
+      "description": "cgroup v2 PSI：任务因等待 CPU 而停滞的时间占比，可反映 CPU 节流或资源竞争压力。"
     },
     {
       "collapsed": false,
@@ -697,11 +697,11 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 26
       },
       "id": 120,
       "panels": [],
-      "title": "Memory",
+      "title": "内存",
       "type": "row"
     },
     {
@@ -720,9 +720,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
+        "w": 12,
         "x": 0,
-        "y": 15
+        "y": 27
       },
       "hiddenSeries": false,
       "id": 121,
@@ -765,7 +765,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory Working Set",
+      "title": "内存工作集",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -801,7 +801,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "working set = usage - inactive file, same metric docker stats uses"
+      "description": "工作集 = 内存用量 - 非活跃文件缓存，与 docker stats 使用的指标一致"
     },
     {
       "aliasColors": {},
@@ -819,9 +819,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 6,
-        "y": 15
+        "w": 12,
+        "x": 12,
+        "y": 27
       },
       "hiddenSeries": false,
       "id": 9,
@@ -864,7 +864,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory Usage (RSS)",
+      "title": "内存使用量（RSS）",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -917,9 +917,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 12,
-        "y": 15
+        "w": 12,
+        "x": 0,
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 14,
@@ -962,7 +962,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory Cached",
+      "title": "缓存内存",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1015,9 +1015,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 6,
-        "x": 18,
-        "y": 15
+        "w": 12,
+        "x": 12,
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 122,
@@ -1060,7 +1060,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Memory Swap",
+      "title": "容器 Swap",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1104,11 +1104,11 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 43
       },
       "id": 130,
       "panels": [],
-      "title": "Network",
+      "title": "网络",
       "type": "row"
     },
     {
@@ -1127,9 +1127,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 12,
         "x": 0,
-        "y": 24
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 4,
@@ -1172,7 +1172,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Received Network Traffic",
+      "title": "网络接收流量",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1225,9 +1225,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 24
+        "w": 12,
+        "x": 12,
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 6,
@@ -1270,7 +1270,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Sent Network Traffic",
+      "title": "网络发送流量",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1323,9 +1323,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 24
+        "w": 24,
+        "x": 0,
+        "y": 52
       },
       "hiddenSeries": false,
       "id": 131,
@@ -1360,14 +1360,14 @@
           "expr": "sum(rate(container_network_receive_errors_total{instance=~\"$host\",name=~\"$container\"}[5m]) + rate(container_network_receive_packets_dropped_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} rx",
+          "legendFormat": "{{name}} 接收",
           "refId": "A"
         },
         {
           "expr": "sum(rate(container_network_transmit_errors_total{instance=~\"$host\",name=~\"$container\"}[5m]) + rate(container_network_transmit_packets_dropped_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} tx",
+          "legendFormat": "{{name}} 发送",
           "refId": "B"
         }
       ],
@@ -1375,7 +1375,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Network Errors & Drops",
+      "title": "网络错误与丢包",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1411,7 +1411,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "errors + dropped packets per second"
+      "description": "每秒错误数 + 丢包数"
     },
     {
       "collapsed": false,
@@ -1420,11 +1420,11 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 60
       },
       "id": 140,
       "panels": [],
-      "title": "Disk",
+      "title": "磁盘",
       "type": "row"
     },
     {
@@ -1443,9 +1443,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 12,
         "x": 0,
-        "y": 33
+        "y": 61
       },
       "hiddenSeries": false,
       "id": 141,
@@ -1480,14 +1480,14 @@
           "expr": "sum(rate(container_blkio_device_usage_total{instance=~\"$host\",name=~\"$container\",operation=\"Read\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} read",
+          "legendFormat": "{{name}} 读",
           "refId": "A"
         },
         {
           "expr": "sum(rate(container_blkio_device_usage_total{instance=~\"$host\",name=~\"$container\",operation=\"Write\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} write",
+          "legendFormat": "{{name}} 写",
           "refId": "B"
         }
       ],
@@ -1495,7 +1495,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Block Device I/O",
+      "title": "块设备 I/O",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1531,7 +1531,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "host block device (sda/sdb) throughput per container"
+      "description": "各容器对应的主机块设备（sda/sdb）吞吐量"
     },
     {
       "aliasColors": {},
@@ -1549,9 +1549,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 33
+        "w": 12,
+        "x": 12,
+        "y": 61
       },
       "hiddenSeries": false,
       "id": 142,
@@ -1586,14 +1586,14 @@
           "expr": "sum(rate(container_fs_reads_bytes_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} read",
+          "legendFormat": "{{name}} 读",
           "refId": "A"
         },
         {
           "expr": "sum(rate(container_fs_writes_bytes_total{instance=~\"$host\",name=~\"$container\"}[5m])) by (name)",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{name}} write",
+          "legendFormat": "{{name}} 写",
           "refId": "B"
         }
       ],
@@ -1601,7 +1601,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Container FS I/O",
+      "title": "容器文件系统 I/O",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1637,7 +1637,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "container rootfs (overlay) I/O"
+      "description": "容器 rootfs（overlay）I/O"
     },
     {
       "aliasColors": {},
@@ -1655,9 +1655,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 33
+        "w": 24,
+        "x": 0,
+        "y": 69
       },
       "hiddenSeries": false,
       "id": 143,
@@ -1700,7 +1700,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Container FS Usage",
+      "title": "容器文件系统使用量",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1736,7 +1736,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "container rootfs usage"
+      "description": "容器 rootfs 使用量"
     },
     {
       "collapsed": false,
@@ -1745,11 +1745,11 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 77
       },
       "id": 150,
       "panels": [],
-      "title": "Containers",
+      "title": "容器",
       "type": "row"
     },
     {
@@ -1821,7 +1821,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 42
+        "y": 78
       },
       "id": 17,
       "options": {
@@ -1842,7 +1842,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Containers Info",
+      "title": "容器信息",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -1866,13 +1866,13 @@
             "excludeByName": {},
             "indexByName": {},
             "renameByName": {
-              "Value": "Running",
-              "container_label_com_docker_compose_project": "Label",
-              "container_label_com_docker_compose_project_working_dir": "Working dir",
-              "container_label_com_docker_compose_service": "Service",
-              "image": "Registry Image",
-              "instance": "Instance",
-              "name": "Name"
+              "Value": "运行时长",
+              "container_label_com_docker_compose_project": "Compose 项目",
+              "container_label_com_docker_compose_project_working_dir": "工作目录",
+              "container_label_com_docker_compose_service": "服务",
+              "image": "镜像",
+              "instance": "实例",
+              "name": "名称"
             }
           }
         }
@@ -1895,9 +1895,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 12,
         "x": 0,
-        "y": 52
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 151,
@@ -1940,7 +1940,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Tasks by State",
+      "title": "任务状态分布",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1976,7 +1976,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "task state distribution across selected containers"
+      "description": "所选容器的任务状态分布"
     },
     {
       "aliasColors": {},
@@ -1994,9 +1994,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 8,
-        "y": 52
+        "w": 12,
+        "x": 12,
+        "y": 88
       },
       "hiddenSeries": false,
       "id": 152,
@@ -2039,7 +2039,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Container Health",
+      "title": "容器健康状态",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2075,7 +2075,7 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "1=healthy, 2=unhealthy, 0=unknown/none (hover a line for the value)"
+      "description": "1=健康，2=不健康，0=未知/未配置（悬停曲线查看具体值）"
     },
     {
       "aliasColors": {},
@@ -2093,9 +2093,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
-        "y": 52
+        "w": 24,
+        "x": 0,
+        "y": 96
       },
       "hiddenSeries": false,
       "id": 153,
@@ -2138,7 +2138,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "OOM Kills (last 1h)",
+      "title": "OOM 终止次数（近 1 小时）",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2174,14 +2174,15 @@
         "align": false,
         "alignLevel": null
       },
-      "description": "OOM kills per container in the last hour"
+      "description": "过去 1 小时内各容器的 OOM 终止次数"
     }
   ],
   "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "cadvisor",
-    "docker"
+    "docker",
+    "chinese"
   ],
   "templating": {
     "list": [
@@ -2191,7 +2192,7 @@
         "datasource": "${DS_PROMETHEUS}",
         "definition": "label_values({__name__=~\"container.*\"},instance)",
         "includeAll": true,
-        "label": "Host",
+        "label": "主机",
         "multi": false,
         "name": "host",
         "options": [],
@@ -2215,7 +2216,7 @@
         "datasource": "${DS_PROMETHEUS}",
         "definition": "label_values({__name__=~\"container.*\", instance=~\"$host\", name!=\"\"},name)",
         "includeAll": true,
-        "label": "Container",
+        "label": "容器",
         "multi": false,
         "name": "container",
         "options": [],
@@ -2235,14 +2236,15 @@
       }
     ]
   },
+  "refresh": "10s",
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Cadvisor exporter v2",
+  "title": "cAdvisor 容器监控",
   "uid": "cadvisor-exporter-v2",
   "version": 1,
-  "description": "Full cadvisor dashboard: host (root cgroup) + per-container CPU/memory/network/disk/PSI/OOM. Container variable lists real containers only; host stats use id=\"/\" to avoid double counting anonymous cgroups."
+  "description": "完整 cAdvisor 监控面板：主机（根 cgroup）与各容器 CPU/内存/网络/磁盘/PSI/OOM。容器变量仅列出真实容器；主机统计使用 id=\"/\"，避免重复统计匿名 cgroup。"
 }

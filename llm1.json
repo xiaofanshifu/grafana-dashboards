@@ -47,7 +47,7 @@
       }
     ],
     "cursorSync": "Crosshair",
-    "description": "vLLM 推理服务器监控",
+    "description": "vLLM 与 SGLang 双框架 LLM 推理监控：核心指标总览，覆盖请求量、延迟分位数、Token 吞吐、队列状态、缓存行为与可靠性。",
     "editable": true,
     "elements": {
       "panel-101": {
@@ -5030,15 +5030,16 @@
     "liveNow": false,
     "preload": false,
     "tags": [
-      "vllm",
-      "inference",
       "llm",
-      "smoody"
+      "inference",
+      "sglang",
+      "vllm",
+      "chinese"
     ],
     "timeSettings": {
-      "from": "now-15m",
+      "from": "now-30m",
       "to": "now",
-      "autoRefresh": "5s",
+      "autoRefresh": "10s",
       "autoRefreshIntervals": [
         "5s",
         "10s",
@@ -5054,7 +5055,7 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "vllm-dashboard1",
+    "title": "LLM 推理监控 (vLLM/SGLang) · 核心概览",
     "variables": [
       {
         "kind": "QueryVariable",
