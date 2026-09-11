@@ -72,7 +72,7 @@
                         "expr": "rate(node_netstat_TcpExt_ListenOverflows{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
                         "format": "time_series",
                         "interval": "",
-                        "legendFormat": "Listen Overflows",
+                        "legendFormat": "监听溢出",
                         "range": true,
                         "step": 240
                       }
@@ -96,7 +96,7 @@
                         "expr": "rate(node_netstat_TcpExt_ListenDrops{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
                         "format": "time_series",
                         "interval": "",
-                        "legendFormat": "Listen Drops",
+                        "legendFormat": "监听丢弃",
                         "range": true,
                         "step": 240
                       }
@@ -120,7 +120,7 @@
                         "expr": "rate(node_netstat_TcpExt_TCPSynRetrans{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
                         "format": "time_series",
                         "interval": "",
-                        "legendFormat": "SYN Retransmits",
+                        "legendFormat": "SYN 重传",
                         "range": true,
                         "step": 240
                       }
@@ -702,7 +702,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -2006,7 +2006,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -3119,7 +3119,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -3272,7 +3272,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -3425,7 +3425,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -3578,7 +3578,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -4082,7 +4082,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Virtual Memory Limit"
+                      "options": "虚拟内存上限"
                     },
                     "properties": [
                       {
@@ -4104,30 +4104,6 @@
                         "value": {
                           "fixedColor": "dark-red",
                           "mode": "fixed"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "__systemRef": "hideSeriesFrom",
-                    "matcher": {
-                      "id": "byNames",
-                      "options": {
-                        "mode": "exclude",
-                        "names": [
-                          "Virtual Memory"
-                        ],
-                        "prefix": "All except:",
-                        "readOnly": true
-                      }
-                    },
-                    "properties": [
-                      {
-                        "id": "custom.hideFrom",
-                        "value": {
-                          "legend": false,
-                          "tooltip": true,
-                          "viz": true
                         }
                       }
                     ]
@@ -4377,7 +4353,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Entropy pool max"
+                      "options": "熵池上限"
                     },
                     "properties": [
                       {
@@ -5177,7 +5153,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Critical.*/"
+                      "options": "/.*临界.*/"
                     },
                     "properties": [
                       {
@@ -5809,7 +5785,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Pgfault - Page major and minor fault ops"
+                      "options": "Pgfault - 缺页（主+次）次数"
                     },
                     "properties": [
                       {
@@ -5985,7 +5961,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*换出.*/"
                     },
                     "properties": [
                       {
@@ -6004,7 +5980,7 @@
         "kind": "Panel",
         "spec": {
           "id": 18,
-          "title": "SWAP 总量",
+          "title": "Swap 总量",
           "description": "",
           "links": [],
           "data": {
@@ -6392,7 +6368,7 @@
         "kind": "Panel",
         "spec": {
           "id": 21,
-          "title": "SWAP 已用",
+          "title": "Swap 已用",
           "description": "系统当前 swap 空间使用率",
           "links": [],
           "data": {
@@ -6745,7 +6721,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*换出.*/"
                     },
                     "properties": [
                       {
@@ -7064,7 +7040,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -7214,7 +7190,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -7676,7 +7652,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -7991,7 +7967,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Apps"
+                      "options": "Apps - 用户态应用程序使用的内存"
                     },
                     "properties": [
                       {
@@ -8006,7 +7982,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Buffers"
+                      "options": "Buffers - 块设备（如硬盘）缓存"
                     },
                     "properties": [
                       {
@@ -8021,7 +7997,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Cache"
+                      "options": "Cache - 文件数据（文件内容）缓存"
                     },
                     "properties": [
                       {
@@ -8036,22 +8012,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Free"
-                    },
-                    "properties": [
-                      {
-                        "id": "color",
-                        "value": {
-                          "fixedColor": "#0A437C",
-                          "mode": "fixed"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "matcher": {
-                      "id": "byName",
-                      "options": "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working"
+                      "options": "Hardware Corrupted - 内核识别为损坏/故障的 RAM 数量"
                     },
                     "properties": [
                       {
@@ -8066,7 +8027,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "PageTables"
+                      "options": "PageTables - 虚拟/物理地址映射用内存"
                     },
                     "properties": [
                       {
@@ -8081,7 +8042,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Slab"
+                      "options": "Slab - 内核自用的数据结构缓存内存（如 inode、dentry 等）"
                     },
                     "properties": [
                       {
@@ -8096,7 +8057,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Swap"
+                      "options": "Swap - 已用交换空间"
                     },
                     "properties": [
                       {
@@ -8111,7 +8072,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Unused"
+                      "options": "Unused - 未分配的空闲内存"
                     },
                     "properties": [
                       {
@@ -8126,7 +8087,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Unused - Free memory unassigned"
+                      "options": "Unused - 未分配的空闲内存"
                     },
                     "properties": [
                       {
@@ -8580,7 +8541,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Max.*/"
+                      "options": "/.*最大.*/"
                     },
                     "properties": [
                       {
@@ -8937,7 +8898,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Dropped.*/"
+                      "options": "/.*丢弃.*/"
                     },
                     "properties": [
                       {
@@ -9398,7 +9359,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Failed"
+                      "options": "失败"
                     },
                     "properties": [
                       {
@@ -9413,7 +9374,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Active"
+                      "options": "活动中"
                     },
                     "properties": [
                       {
@@ -9428,7 +9389,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Activating"
+                      "options": "激活中"
                     },
                     "properties": [
                       {
@@ -9443,7 +9404,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Deactivating"
+                      "options": "停止中"
                     },
                     "properties": [
                       {
@@ -9458,7 +9419,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Inactive"
+                      "options": "不活动"
                     },
                     "properties": [
                       {
@@ -9619,7 +9580,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -9935,7 +9896,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Idle - Waiting for something to happen"
+                      "options": "Idle - 空闲等待事件"
                     },
                     "properties": [
                       {
@@ -9950,7 +9911,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Iowait - Waiting for I/O to complete"
+                      "options": "Iowait - 等待 I/O 完成"
                     },
                     "properties": [
                       {
@@ -9965,7 +9926,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Irq - Servicing interrupts"
+                      "options": "Irq - 处理硬件中断"
                     },
                     "properties": [
                       {
@@ -9980,7 +9941,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Nice - Niced processes executing in user mode"
+                      "options": "Nice - 低优先级用户态进程"
                     },
                     "properties": [
                       {
@@ -9995,7 +9956,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Softirq - Servicing softirqs"
+                      "options": "Softirq - 处理软中断"
                     },
                     "properties": [
                       {
@@ -10010,7 +9971,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Steal - Time spent in other operating systems when running in a virtualized environment"
+                      "options": "Steal - 虚拟化环境下被其他系统占用的时间"
                     },
                     "properties": [
                       {
@@ -10025,7 +9986,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "System - Processes executing in kernel mode"
+                      "options": "System - 内核态执行的进程"
                     },
                     "properties": [
                       {
@@ -10040,7 +10001,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "User - Normal processes executing in user mode"
+                      "options": "User - 普通用户态进程"
                     },
                     "properties": [
                       {
@@ -10055,7 +10016,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Guest CPU usage"
+                      "options": "Guest CPU 使用率"
                     },
                     "properties": [
                       {
@@ -10198,27 +10159,7 @@
                     }
                   }
                 },
-                "overrides": [
-                  {
-                    "matcher": {
-                      "id": "byRegexp",
-                      "options": "/.*Max.*/"
-                    },
-                    "properties": [
-                      {
-                        "id": "color",
-                        "value": {
-                          "fixedColor": "#EF843C",
-                          "mode": "fixed"
-                        }
-                      },
-                      {
-                        "id": "custom.fillOpacity",
-                        "value": 0
-                      }
-                    ]
-                  }
-                ]
+                "overrides": []
               }
             }
           }
@@ -10686,7 +10627,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*waiting.*/"
+                      "options": "/.*等待.*/"
                     },
                     "properties": [
                       {
@@ -10934,7 +10875,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "OOM Kills"
+                      "options": "OOM Kill 次数"
                     },
                     "properties": [
                       {
@@ -11470,7 +11411,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "PIDs limit"
+                      "options": "PID 上限"
                     },
                     "properties": [
                       {
@@ -11642,7 +11583,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Threads limit"
+                      "options": "线程上限"
                     },
                     "properties": [
                       {
@@ -12255,7 +12196,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Max"
+                      "options": "最大值"
                     },
                     "properties": [
                       {
@@ -12288,7 +12229,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Min"
+                      "options": "最小值"
                     },
                     "properties": [
                       {
@@ -12328,8 +12269,8 @@
         "kind": "Panel",
         "spec": {
           "id": 322,
-          "title": "PSI 压力失速信息",
-          "description": "任务遭遇 CPU、内存或 I/O 延迟的频率。'Some' 表示部分任务受影响；'Full' 表示全部任务停滞。基于 Linux PSI 指标：\nhttps://docs.kernel.org/accounting/psi.html",
+          "title": "PSI 压力停滞信息",
+          "description": "任务因 CPU、内存或 I/O 而停滞的频率。'Some' 表示部分任务受影响；'Full' 表示全部任务停滞。参照 Linux PSI 指标：\nhttps://docs.kernel.org/accounting/psi.html",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -12354,7 +12295,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "CPU some",
+                    "refId": "A",
                     "hidden": false
                   }
                 },
@@ -12377,7 +12318,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "Memory some",
+                    "refId": "B",
                     "hidden": false
                   }
                 },
@@ -12400,7 +12341,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "Memory full",
+                    "refId": "C",
                     "hidden": false
                   }
                 },
@@ -12423,7 +12364,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "I/O some",
+                    "refId": "D",
                     "hidden": false
                   }
                 },
@@ -12446,7 +12387,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "I/O full",
+                    "refId": "E",
                     "hidden": false
                   }
                 },
@@ -12469,7 +12410,7 @@
                         "step": 240
                       }
                     },
-                    "refId": "A",
+                    "refId": "F",
                     "hidden": false
                   }
                 }
@@ -13289,7 +13230,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -13459,7 +13400,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Dropped.*/"
+                      "options": "/.*丢弃.*/"
                     },
                     "properties": [
                       {
@@ -14613,7 +14554,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -15726,7 +15667,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -16131,7 +16072,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -16708,7 +16649,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -16863,7 +16804,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -17016,7 +16957,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "NF conntrack limit"
+                      "options": "NF conntrack 上限"
                     },
                     "properties": [
                       {
@@ -17521,7 +17462,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Max.*/"
+                      "options": "/.*最大.*/"
                     },
                     "properties": [
                       {
@@ -17543,30 +17484,6 @@
                             10
                           ],
                           "fill": "dash"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "__systemRef": "hideSeriesFrom",
-                    "matcher": {
-                      "id": "byNames",
-                      "options": {
-                        "mode": "exclude",
-                        "names": [
-                          "Open file descriptors"
-                        ],
-                        "prefix": "All except:",
-                        "readOnly": true
-                      }
-                    },
-                    "properties": [
-                      {
-                        "id": "custom.hideFrom",
-                        "value": {
-                          "legend": false,
-                          "tooltip": true,
-                          "viz": true
                         }
                       }
                     ]
@@ -17761,7 +17678,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "CPU Core Count"
+                      "options": "CPU 核心数"
                     },
                     "properties": [
                       {
@@ -18119,7 +18036,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Tx.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -18460,7 +18377,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Busy Iowait"
+                      "options": "繁忙 Iowait"
                     },
                     "properties": [
                       {
@@ -18475,7 +18392,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Idle"
+                      "options": "空闲"
                     },
                     "properties": [
                       {
@@ -18490,7 +18407,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Busy System"
+                      "options": "繁忙 系统"
                     },
                     "properties": [
                       {
@@ -18505,7 +18422,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Busy User"
+                      "options": "繁忙 用户"
                     },
                     "properties": [
                       {
@@ -18520,7 +18437,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Busy Other"
+                      "options": "繁忙 其他"
                     },
                     "properties": [
                       {
@@ -18742,7 +18659,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Swap used"
+                      "options": "已用 Swap"
                     },
                     "properties": [
                       {
@@ -18757,7 +18674,7 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Total"
+                      "options": "总计"
                     },
                     "properties": [
                       {
@@ -18783,28 +18700,13 @@
                   {
                     "matcher": {
                       "id": "byName",
-                      "options": "Cache + Buffer"
+                      "options": "Cache + Buffer（缓存）"
                     },
                     "properties": [
                       {
                         "id": "color",
                         "value": {
                           "fixedColor": "#052B51",
-                          "mode": "fixed"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "matcher": {
-                      "id": "byName",
-                      "options": "Free"
-                    },
-                    "properties": [
-                      {
-                        "id": "color",
-                        "value": {
-                          "fixedColor": "#7EB26D",
                           "mode": "fixed"
                         }
                       }
@@ -19235,7 +19137,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*out.*/"
+                      "options": "/.*发送.*/"
                     },
                     "properties": [
                       {
@@ -19390,7 +19292,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Max.*/"
+                      "options": "/.*最大.*/"
                     },
                     "properties": [
                       {
@@ -19557,7 +19459,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Read.*/"
+                      "options": "/.*读.*/"
                     },
                     "properties": [
                       {
@@ -19591,7 +19493,7 @@
         "kind": "Panel",
         "spec": {
           "id": 91,
-          "title": "TCP SynCookie",
+          "title": "TCP SYN Cookie",
           "description": "TCP SYN cookie 发送、验证与失败的速率，用于防御 SYN flood 攻击并在高负载下管理握手资源",
           "links": [],
           "data": {
@@ -19750,7 +19652,7 @@
                   {
                     "matcher": {
                       "id": "byRegexp",
-                      "options": "/.*Failed.*/"
+                      "options": "/.*失败.*/"
                     },
                     "properties": [
                       {
@@ -19799,7 +19701,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 3,
-                        "y": 0,
+                        "y": 4,
                         "width": 3,
                         "height": 4,
                         "element": {
@@ -19812,7 +19714,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 6,
-                        "y": 0,
+                        "y": 8,
                         "width": 3,
                         "height": 4,
                         "element": {
@@ -19825,7 +19727,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 9,
-                        "y": 0,
+                        "y": 12,
                         "width": 3,
                         "height": 4,
                         "element": {
@@ -19838,7 +19740,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 16,
                         "width": 3,
                         "height": 4,
                         "element": {
@@ -19851,7 +19753,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 15,
-                        "y": 0,
+                        "y": 20,
                         "width": 3,
                         "height": 4,
                         "element": {
@@ -19864,7 +19766,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 18,
-                        "y": 0,
+                        "y": 24,
                         "width": 2,
                         "height": 2,
                         "element": {
@@ -19877,7 +19779,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 20,
-                        "y": 0,
+                        "y": 26,
                         "width": 2,
                         "height": 2,
                         "element": {
@@ -19890,7 +19792,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 22,
-                        "y": 0,
+                        "y": 28,
                         "width": 2,
                         "height": 2,
                         "element": {
@@ -19903,7 +19805,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 18,
-                        "y": 2,
+                        "y": 30,
                         "width": 2,
                         "height": 2,
                         "element": {
@@ -19916,7 +19818,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 20,
-                        "y": 2,
+                        "y": 32,
                         "width": 4,
                         "height": 2,
                         "element": {
@@ -19956,7 +19858,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 7,
                         "width": 12,
                         "height": 7,
                         "element": {
@@ -19969,7 +19871,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 7,
+                        "y": 14,
                         "width": 12,
                         "height": 7,
                         "element": {
@@ -19982,7 +19884,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 7,
+                        "y": 21,
                         "width": 12,
                         "height": 7,
                         "element": {
@@ -20022,7 +19924,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 12,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20035,7 +19937,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 412,
+                        "y": 24,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20048,7 +19950,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 412,
+                        "y": 36,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20061,7 +19963,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 424,
+                        "y": 48,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20074,7 +19976,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 424,
+                        "y": 60,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20087,7 +19989,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 436,
+                        "y": 72,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20100,7 +20002,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 436,
+                        "y": 84,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20113,7 +20015,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 448,
+                        "y": 96,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20126,7 +20028,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 448,
+                        "y": 108,
                         "width": 12,
                         "height": 12,
                         "element": {
@@ -20153,7 +20055,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 710,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20166,7 +20068,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 710,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20179,7 +20081,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 910,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20192,7 +20094,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 910,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20205,7 +20107,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 920,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20218,7 +20120,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 920,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20231,7 +20133,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 930,
+                        "y": 60,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20244,7 +20146,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 930,
+                        "y": 70,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20257,7 +20159,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 940,
+                        "y": 80,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20270,7 +20172,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 940,
+                        "y": 90,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20283,7 +20185,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 950,
+                        "y": 100,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20296,7 +20198,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 950,
+                        "y": 110,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20323,7 +20225,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 710,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20336,7 +20238,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 710,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20349,7 +20251,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 890,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20362,7 +20264,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 890,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20389,7 +20291,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 710,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20402,7 +20304,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 710,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20415,7 +20317,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 860,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20428,7 +20330,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 860,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20441,7 +20343,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 870,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20454,7 +20356,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 870,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20481,7 +20383,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 710,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20494,7 +20396,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 710,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20507,7 +20409,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 740,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20520,7 +20422,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 740,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20533,7 +20435,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 750,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20546,7 +20448,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 750,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20573,7 +20475,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 790,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20586,7 +20488,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 790,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20599,7 +20501,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 800,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20612,7 +20514,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 800,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20625,7 +20527,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 810,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20638,7 +20540,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 810,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20665,7 +20567,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 710,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20678,7 +20580,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 710,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20691,7 +20593,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 720,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20704,7 +20606,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 720,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20731,7 +20633,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 4200,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20744,7 +20646,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 4200,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20757,7 +20659,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 4210,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20770,7 +20672,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 4210,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20810,7 +20712,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20823,7 +20725,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 360,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20836,7 +20738,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 360,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20849,7 +20751,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 370,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20862,7 +20764,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 370,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20875,7 +20777,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 380,
+                        "y": 60,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20888,7 +20790,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 380,
+                        "y": 70,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20901,7 +20803,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 390,
+                        "y": 80,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20941,7 +20843,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20954,7 +20856,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 340,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -20967,7 +20869,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 340,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21007,7 +20909,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21020,7 +20922,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 220,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21033,7 +20935,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 220,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21046,7 +20948,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 230,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21059,7 +20961,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 230,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21072,7 +20974,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 240,
+                        "y": 60,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21085,7 +20987,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 240,
+                        "y": 70,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21098,7 +21000,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 250,
+                        "y": 80,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21111,7 +21013,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 250,
+                        "y": 90,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21124,7 +21026,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 260,
+                        "y": 100,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21137,7 +21039,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 260,
+                        "y": 110,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21150,7 +21052,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 270,
+                        "y": 120,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21163,7 +21065,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 270,
+                        "y": 130,
                         "width": 6,
                         "height": 10,
                         "element": {
@@ -21176,7 +21078,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 18,
-                        "y": 270,
+                        "y": 140,
                         "width": 6,
                         "height": 10,
                         "element": {
@@ -21216,7 +21118,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 0,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21229,7 +21131,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 10,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21242,7 +21144,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 10,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21255,7 +21157,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 20,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21268,7 +21170,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 20,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21281,7 +21183,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 30,
+                        "y": 60,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21294,7 +21196,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 30,
+                        "y": 70,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21307,7 +21209,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 40,
+                        "y": 80,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21320,7 +21222,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 40,
+                        "y": 90,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21347,7 +21249,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 130,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21360,7 +21262,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 130,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21373,7 +21275,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 160,
+                        "y": 20,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21386,7 +21288,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 160,
+                        "y": 30,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21399,7 +21301,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 170,
+                        "y": 40,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21412,7 +21314,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 170,
+                        "y": 50,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21425,7 +21327,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 180,
+                        "y": 60,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21438,7 +21340,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 180,
+                        "y": 70,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21451,7 +21353,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 190,
+                        "y": 80,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21464,7 +21366,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 190,
+                        "y": 90,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21477,7 +21379,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 200,
+                        "y": 100,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21490,7 +21392,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 200,
+                        "y": 110,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21503,7 +21405,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 210,
+                        "y": 120,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21516,7 +21418,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 210,
+                        "y": 130,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21543,7 +21445,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 130,
+                        "y": 0,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21556,7 +21458,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 12,
-                        "y": 130,
+                        "y": 10,
                         "width": 12,
                         "height": 10,
                         "element": {
@@ -21569,7 +21471,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 0,
-                        "y": 140,
+                        "y": 20,
                         "width": 10,
                         "height": 10,
                         "element": {
@@ -21582,7 +21484,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 10,
-                        "y": 140,
+                        "y": 30,
                         "width": 10,
                         "height": 10,
                         "element": {
@@ -21595,7 +21497,7 @@
                       "kind": "GridLayoutItem",
                       "spec": {
                         "x": 20,
-                        "y": 140,
+                        "y": 40,
                         "width": 4,
                         "height": 10,
                         "element": {
