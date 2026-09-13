@@ -2897,7 +2897,7 @@
     "preload": false,
     "tags": [
       "cadvisor",
-      "docker",
+      "container",
       "chinese"
     ],
     "timeSettings": {
@@ -2919,7 +2919,7 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "cAdvisor 容器监控",
+    "title": "容器监控 (cAdvisor)",
     "variables": [
       {
         "kind": "DatasourceVariable",

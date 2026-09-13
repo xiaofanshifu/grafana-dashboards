@@ -6,11 +6,11 @@
 
 | 文件 | 名称 | 说明 |
 |---|---|---|
-| `cadvisor.json` | Cadvisor exporter v2 | 容器级指标：CPU、内存、网络、磁盘 IO 等 |
-| `node.json` | node_exporter_full | 主机级指标：CPU、内存、磁盘、网络、TCP/UDP/ICMP 错误、IRQ、进程等 |
-| `llm1.json` | vLLM 推理服务器监控 | 请求成功率、活跃请求数、TTFT P99、抢占率、请求耗时 P50/P99、Token 吞吐等 |
-| `llm2.json` | vLLM 监控（中文汉化版） | 调度器效率、KV Cache 使用率、TTFT/TPOT 延迟、Prefix Cache 命中率、请求完成原因分布 |
-| `llm3.json` | 统一 LLM 推理监控（SGLang + vLLM） | 请求量、Token 吞吐、延迟分位数、队列状态、缓存行为、API Server QPS |
+| `cadvisor.json` | 容器监控 (cAdvisor) | 容器级指标：CPU、内存、网络、磁盘 IO、PSI、OOM 等 |
+| `node.json` | Linux 主机监控 (Node Exporter) | 主机级指标：CPU、内存、磁盘、网络、TCP/UDP/ICMP 错误、IRQ、进程等 |
+| `llm1.json` | LLM 推理监控 (vLLM/SGLang) · 核心概览 | 请求成功率、活跃请求数、TTFT P99、抢占率、请求耗时 P50/P99、Token 吞吐等 |
+| `llm2.json` | LLM 推理监控 (vLLM/SGLang) · 扩展分析 | 调度器效率、KV Cache 使用率、TTFT/TPOT 延迟、Prefix Cache 命中率、请求完成原因分布 |
+| `llm3.json` | LLM 推理监控 (vLLM/SGLang) · 统一视图 | 请求量、Token 吞吐、延迟分位数、队列状态、缓存行为、Engine / TP Rank 维度分布 |
 
 ## 导入方法
 
