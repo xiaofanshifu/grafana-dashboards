@@ -44,6 +44,7 @@
       }
     ],
     "cursorSync": "Crosshair",
+    "description": "Linux 主机监控（Node Exporter）：CPU/内存/磁盘/网络概览与明细，覆盖 Meminfo/Vmstat、Systemd、Sockstat/Netstat、TCP/UDP/ICMP 错误、PSI 压力、软中断、硬件传感器及 Node Exporter 自身运行状态。",
     "editable": true,
     "elements": {
       "panel-104": {
@@ -3004,7 +3005,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_compressed_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_compressed_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -3027,7 +3028,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_compressed_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_compressed_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -3157,7 +3158,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_errs_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_errs_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -3180,7 +3181,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_errs_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_errs_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -3310,7 +3311,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_drop_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_drop_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -3333,7 +3334,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_drop_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_drop_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -3463,7 +3464,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_fifo_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_fifo_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -3486,7 +3487,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_fifo_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_fifo_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -3616,7 +3617,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_frame_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_frame_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -3733,7 +3734,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_multicast_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_multicast_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -7443,7 +7444,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_carrier_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_carrier_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -7560,7 +7561,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_colls_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_colls_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -8596,7 +8597,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "node_network_speed_bytes{instance=\"$node\",job=\"$job\"} * 8",
+                        "expr": "node_network_speed_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"} * 8",
                         "format": "time_series",
                         "legendFormat": "{{ device }}",
                         "range": true,
@@ -8689,7 +8690,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "node_network_mtu_bytes{instance=\"$node\",job=\"$job\"}",
+                        "expr": "node_network_mtu_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}",
                         "format": "time_series",
                         "legendFormat": "{{ device }}",
                         "range": true,
@@ -11033,7 +11034,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "node_network_up{operstate=\"up\",instance=\"$node\",job=\"$job\"}",
+                        "expr": "node_network_up{operstate=\"up\",instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}",
                         "format": "time_series",
                         "legendFormat": "{{interface}} - 运行状态 UP",
                         "range": true,
@@ -11056,7 +11057,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "node_network_carrier{instance=\"$node\",job=\"$job\"}",
+                        "expr": "node_network_carrier{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}",
                         "format": "time_series",
                         "instant": false,
                         "legendFormat": "{{device}} - 物理链路"
@@ -12997,7 +12998,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_nohandler_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_nohandler_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -14440,7 +14441,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "(node_network_speed_bytes{instance=\"$node\",job=\"$job\"} > bool 0) * (rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval]) / node_network_speed_bytes{instance=\"$node\",job=\"$job\"})",
+                        "expr": "(node_network_speed_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"} > bool 0) * (rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval]) / node_network_speed_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"})",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -14463,7 +14464,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "(node_network_speed_bytes{instance=\"$node\",job=\"$job\"} > bool 0) * (rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval]) / node_network_speed_bytes{instance=\"$node\",job=\"$job\"})",
+                        "expr": "(node_network_speed_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"} > bool 0) * (rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval]) / node_network_speed_bytes{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"})",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -16687,7 +16688,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_packets_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_receive_packets_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "interval": "",
                         "legendFormat": "{{device}} - 接收（Rx）",
@@ -16711,7 +16712,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_packets_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])",
+                        "expr": "rate(node_network_transmit_packets_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])",
                         "format": "time_series",
                         "interval": "",
                         "legendFormat": "{{device}} - 发送（Tx）",
@@ -17926,7 +17927,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])*8",
+                        "expr": "rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])*8",
                         "format": "time_series",
                         "legendFormat": "接收 {{device}}",
                         "range": true,
@@ -17949,7 +17950,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])*8",
+                        "expr": "rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])*8",
                         "format": "time_series",
                         "legendFormat": "发送 {{device}}",
                         "range": true,
@@ -19023,7 +19024,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])*8",
+                        "expr": "rate(node_network_receive_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])*8",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 接收（Rx）",
                         "range": true,
@@ -19046,7 +19047,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\"}[$__rate_interval])*8",
+                        "expr": "rate(node_network_transmit_bytes_total{instance=\"$node\",job=\"$job\",device!~\"veth.*|br-.*|docker.*|virbr.*|cali.*|flannel.*|cni.*|kube.*|tunl.*|vxlan.*|geneve.*|dummy.*\"}[$__rate_interval])*8",
                         "format": "time_series",
                         "legendFormat": "{{device}} - 发送（Tx）",
                         "range": true,
@@ -21518,7 +21519,9 @@
     "liveNow": false,
     "preload": false,
     "tags": [
-      "linux"
+      "linux",
+      "node-exporter",
+      "chinese"
     ],
     "timeSettings": {
       "timezone": "browser",

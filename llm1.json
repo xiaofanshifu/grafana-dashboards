@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v2",
   "kind": "Dashboard",
   "metadata": {
-    "name": "vllm-dashboard1",
+    "name": "llm-dashboard1",
     "namespace": "default",
     "uid": "7912b30b-390b-4ab3-8894-db627d4b4335",
     "resourceVersion": "1785934890050996",
@@ -69,7 +69,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "(sum(rate(vllm:request_success_total{finished_reason=~\"stop|length\", model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:request_success_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])), 0.001)) * 100",
@@ -157,7 +157,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(vllm:num_requests_running{model_name=\"$model_name\", instance=~\"${instance}\"}) + sum(vllm:num_requests_waiting{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -176,7 +176,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(sglang:num_running_reqs{model_name=\"$model_name\", instance=~\"${instance}\"}) + sum(sglang:num_queue_reqs{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -263,7 +263,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "clamp_max((sum(vllm:num_requests_running{model_name=\"$model_name\", instance=~\"${instance}\"}) + 0.001) / (sum(vllm:num_requests_running{model_name=\"$model_name\", instance=~\"${instance}\"}) + sum(vllm:num_requests_waiting{model_name=\"$model_name\", instance=~\"${instance}\"}) + 0.001), 1)",
@@ -282,7 +282,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "clamp_max((sum(sglang:num_running_reqs{model_name=\"$model_name\", instance=~\"${instance}\"}) + 0.001) / (sum(sglang:num_running_reqs{model_name=\"$model_name\", instance=~\"${instance}\"}) + sum(sglang:num_queue_reqs{model_name=\"$model_name\", instance=~\"${instance}\"}) + 0.001), 1)",
@@ -370,7 +370,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum(rate(vllm:time_to_first_token_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) by (le))",
@@ -389,7 +389,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum(rate(sglang:time_to_first_token_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) by (le))",
@@ -475,7 +475,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:num_preemptions_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]))",
@@ -561,7 +561,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(vllm:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -580,7 +580,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum by(le) (rate(vllm:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -599,7 +599,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.5, sum by(le) (rate(vllm:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -618,7 +618,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum(rate(sglang:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) by (le))",
@@ -637,7 +637,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(sglang:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) by (le))",
@@ -656,7 +656,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.5, sum(rate(sglang:e2e_request_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) by (le))",
@@ -767,7 +767,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "rate(vllm:request_prefill_time_seconds_sum{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]) / clamp_min(rate(vllm:request_prefill_time_seconds_count{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]), 0.001)",
@@ -786,7 +786,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "rate(vllm:request_decode_time_seconds_sum{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]) / clamp_min(rate(vllm:request_decode_time_seconds_count{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]), 0.001)",
@@ -805,7 +805,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(sglang:per_stage_req_latency_seconds_bucket{stage=\"prefill_waiting\", model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) by (le))",
@@ -946,7 +946,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(vllm:time_to_first_token_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -965,7 +965,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(vllm:request_time_per_output_token_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -984,7 +984,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(sglang:time_to_first_token_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1003,7 +1003,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(sglang:inter_token_latency_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1113,7 +1113,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -1132,7 +1132,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:generation_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -1151,7 +1151,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(sglang:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -1170,7 +1170,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(sglang:generation_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -1281,7 +1281,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:generation_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])), 0.001)",
@@ -1300,7 +1300,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(sglang:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / (sum(rate(sglang:generation_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) + 0.0001)",
@@ -1386,7 +1386,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "(1 - (sum(rate(vllm:request_prefill_kv_computed_tokens_sum{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])), 1))) * 100",
@@ -1405,7 +1405,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "(1 - avg(sglang:new_token_ratio{model_name=\"$model_name\", instance=~\"${instance}\"})) * 100",
@@ -1493,7 +1493,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by(le) (increase(vllm:request_prompt_tokens_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -1594,7 +1594,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(vllm:request_queue_time_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1613,7 +1613,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.5, sum by(le) (rate(vllm:request_queue_time_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1632,7 +1632,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum by(le) (rate(sglang:queue_time_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1651,7 +1651,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.5, sum by(le) (rate(sglang:queue_time_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -1759,7 +1759,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "vllm:kv_cache_usage_perc{model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -1778,7 +1778,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "avg(sglang:utilization{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -1899,7 +1899,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:prefix_cache_hits_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:prefix_cache_queries_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])), 1)",
@@ -1918,7 +1918,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "avg(sglang:cache_hit_rate{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -2002,7 +2002,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "vllm:num_requests_running{model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -2021,7 +2021,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "vllm:num_requests_waiting{model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -2040,7 +2040,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "vllm:num_requests_swapped{model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -2059,7 +2059,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(sglang:num_running_reqs{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -2078,7 +2078,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(sglang:num_queue_reqs{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -2235,7 +2235,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "rate(python_gc_collections_total{instance=~\"${instance}\"}[5m])",
@@ -2254,7 +2254,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "process_resident_memory_bytes{instance=~\"${instance}\"}",
@@ -2382,7 +2382,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by(finished_reason) (increase(vllm:request_success_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__range]))",
@@ -2514,7 +2514,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:e2e_request_latency_seconds_count{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]))",
@@ -2533,7 +2533,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:request_success_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]))",
@@ -2552,7 +2552,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(sglang:num_requests_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m]))",
@@ -2694,7 +2694,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:mm_cache_hits_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])) / clamp_min(sum(rate(vllm:mm_cache_queries_total{model_name=\"$model_name\", instance=~\"${instance}\"}[5m])), 1)",
@@ -2778,7 +2778,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "max(vllm:engine_sleep_state{model_name=\"$model_name\", instance=~\"${instance}\", sleep_state=\"awake\"})",
@@ -2860,7 +2860,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (request_type) (rate(vllm:tool_call_parser_invocations_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -2968,7 +2968,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:external_prefix_cache_hits_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -2987,7 +2987,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:external_prefix_cache_queries_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -3095,7 +3095,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(http_requests_total{instance=~\"${instance}\"}[$__rate_interval]))",
@@ -3114,7 +3114,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_highr_seconds_bucket{instance=~\"${instance}\"}[$__rate_interval])) by (le))",
@@ -3239,7 +3239,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (reason) (vllm:num_requests_waiting_by_reason{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -3378,7 +3378,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (source) (rate(vllm:prompt_tokens_by_source_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -3532,7 +3532,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:estimated_flops_per_gpu_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) / 1e12",
@@ -3551,7 +3551,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "(sum(rate(vllm:estimated_read_bytes_per_gpu_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) + sum(rate(vllm:estimated_write_bytes_per_gpu_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))) / 1e6",
@@ -3672,7 +3672,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (engine) (rate(vllm:generation_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -3691,7 +3691,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (tp_rank) (rate(sglang:realtime_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\", mode=\"decode\"}[$__rate_interval]))",
@@ -3799,7 +3799,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (engine) (rate(vllm:prompt_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -3818,7 +3818,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (tp_rank) (rate(sglang:realtime_tokens_total{model_name=\"$model_name\", instance=~\"${instance}\", mode=\"prefill_compute\"}[$__rate_interval]))",
@@ -3926,7 +3926,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum by (le, engine) (rate(vllm:request_prefill_time_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -3945,7 +3945,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(sglang:per_stage_req_latency_seconds_bucket{stage=\"prefill_waiting\", model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) by (le, tp_rank))",
@@ -4053,7 +4053,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (engine) (vllm:request_queue_time_seconds_sum{model_name=\"$model_name\", instance=~\"${instance}\"}) / sum by (engine) (vllm:request_queue_time_seconds_count{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -4072,7 +4072,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum by (tp_rank) (sglang:queue_time_seconds_sum{model_name=\"$model_name\", instance=~\"${instance}\"}) / sum by (tp_rank) (sglang:queue_time_seconds_count{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -4180,7 +4180,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(vllm:prompt_tokens_cached_total{model_name=\"$model_name\", instance=~\"${instance}\"})",
@@ -4199,7 +4199,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sum(rate(vllm:prefix_cache_queries_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])) - sum(rate(vllm:prefix_cache_hits_total{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval]))",
@@ -4218,7 +4218,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sglang:cached_tokens_total{cache_source=\"total\", model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -4237,7 +4237,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "sglang:evicted_tokens_total{cache_type=\"RadixCache\", model_name=\"$model_name\", instance=~\"${instance}\"}",
@@ -4345,7 +4345,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.5, sum by (le) (rate(vllm:kv_block_idle_before_evict_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -4364,7 +4364,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum by (le) (rate(vllm:kv_block_idle_before_evict_seconds_bucket{model_name=\"$model_name\", instance=~\"${instance}\"}[$__rate_interval])))",
@@ -4383,7 +4383,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.50, sum(rate(sglang:eviction_duration_seconds_bucket{instance=~\"${instance}\"}[5m])) by (le))",
@@ -4402,7 +4402,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "PBFA97CFB590B2093"
+                        "name": "${ds_prometheus}"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(sglang:eviction_duration_seconds_bucket{instance=~\"${instance}\"}[5m])) by (le))",
@@ -5058,6 +5058,26 @@
     "title": "LLM 推理监控 (vLLM/SGLang) · 核心概览",
     "variables": [
       {
+        "kind": "DatasourceVariable",
+        "spec": {
+          "name": "ds_prometheus",
+          "pluginId": "prometheus",
+          "refresh": "onDashboardLoad",
+          "regex": "",
+          "current": {
+            "text": "",
+            "value": ""
+          },
+          "options": [],
+          "multi": false,
+          "includeAll": false,
+          "label": "数据源",
+          "hide": "dontHide",
+          "skipUrlSync": false,
+          "allowCustomValue": true
+        }
+      },
+      {
         "kind": "QueryVariable",
         "spec": {
           "name": "model_name",
@@ -5074,7 +5094,7 @@
             "group": "prometheus",
             "version": "v0",
             "datasource": {
-              "name": "PBFA97CFB590B2093"
+              "name": "${ds_prometheus}"
             },
             "spec": {
               "query": "label_values({__name__=~\"vllm:num_requests_running|sglang:num_running_reqs\"}, model_name)",
@@ -5107,7 +5127,7 @@
             "group": "prometheus",
             "version": "v0",
             "datasource": {
-              "name": "PBFA97CFB590B2093"
+              "name": "${ds_prometheus}"
             },
             "spec": {
               "query": "label_values({__name__=~\"vllm:num_requests_running|sglang:num_running_reqs\", model_name=\"$model_name\"}, instance)",
